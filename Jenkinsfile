@@ -1,28 +1,28 @@
-pipeline {
+pipline{
     agent any
-    triggers {
+    triggers{
         pollSCM '* * * * *'
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'gradle assemble'
+    stages{
+        stage('Build'){
+            steps{
+                powershell 'gradle assemble'
             }
         }
-         stage('Test') {
-            steps {
-                sh 'gradle test'
+        stage('test'){
+            steps{
+                powershell 'gradle test'
+            }
+
+        }
+        stage('build docker image'){
+            steps{
+                powershell 'gradle docker'
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                sh 'gradle docker'
-            }
-        }
-        stage('Run Docker Image') {
-            steps {
-                sh 'gradle dockerRun'
-            }
+        stage('run docker image'){
+             powershell 'gradle dockerRun'
+
         }
     }
 }
