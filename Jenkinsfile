@@ -17,12 +17,12 @@ pipeline{
         }
         stage('build docker image'){
             steps{
-                powershell gradle docker
+                 gradle docker
             }
         }
         stage('run docker image'){
              steps{
-             powershell gradle dockerRun
+              gradle dockerRun
              }
 
         }
