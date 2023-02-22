@@ -21,7 +21,9 @@ pipline{
             }
         }
         stage('run docker image'){
+             steps{
              powershell 'gradle dockerRun'
+             }
 
         }
     }
