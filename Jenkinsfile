@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                powershell 'gradle assemble'
+                powershell 'gradle assemble --parallel'
             }
         }
         stage('test'){
