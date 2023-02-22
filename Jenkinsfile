@@ -6,23 +6,23 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                powershell 'gradle assemble'
+                 gradle assemble
             }
         }
         stage('test'){
             steps{
-                powershell 'gradle test'
+                 gradle test
             }
 
         }
         stage('build docker image'){
             steps{
-                powershell 'gradle docker'
+                powershell gradle docker
             }
         }
         stage('run docker image'){
              steps{
-             powershell 'gradle dockerRun'
+             powershell gradle dockerRun
              }
 
         }
